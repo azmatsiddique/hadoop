@@ -2,7 +2,7 @@
 Real time Twiter Data Analysis using Hive Tool
 
 Installation of Hive Tool in hadoop
-[------------------------------------]
+------------------------------------------------------------------------------
 1. Download the Binary tar file from apache hive offical website
 2. un tar Apche-hive.tar using command
    $ tar -xvf /location of File
