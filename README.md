@@ -11,10 +11,10 @@ Installation of Hive Tool in hadoop
 
 4. appendment in bashrc file using commad
   $ sudo gedit ~/.bashrc
-"
+
   export PATH=$PATH:$SPARK_HOME/bin
   export HIVE_HOME=/usr/lib/hive
-"
+
 5. For Permanent Save of Bashrc file 
  $ source ~/.bashrc
 6. For automattically Configration of hive File
@@ -25,13 +25,7 @@ Installation of Hive Tool in hadoop
  $ start-all.sh
  
  lauch Hive using commad
- $hive
- *
- *
- *
- *
- hive> 
-
+ $hive> 
  ------------------------------------------------------------------
 7.we create a file tweets.sql which is on the Desktop
 8.Now run the tweets.sql file using the hive command 
