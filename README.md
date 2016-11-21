@@ -15,14 +15,12 @@ Installation of Hive Tool in hadoop
   export PATH=$PATH:$SPARK_HOME/bin
   export HIVE_HOME=/usr/lib/hive
 "
-
 5. For Permanent Save of Bashrc file 
  $ source ~/.bashrc
-
 6. For automattically Configration of hive File
   $ mv metastore_db metaStore_db.tmp
-  $ schematool -initSchema -dbType derby
-  
+  $ schematool -initSchema -dbType derby 
+ -----------------------------------------------------------------------------
  start all service of hadoop 
  $ start-all.sh
  
@@ -35,19 +33,15 @@ Installation of Hive Tool in hadoop
  hive> 
 
  ------------------------------------------------------------------
-we create a file tweets.sql which is on the Desktop
-Now run the tweets.sql file using the hive command 
+7.we create a file tweets.sql which is on the Desktop
+8.Now run the tweets.sql file using the hive command 
 $ cd Desktop
 $ hive --f tweets.sql
-we look into all the created tables in the hive shell and default database.
-
-permission to show data in Excel sheet for analysis 
-
+9.we look into all the created tables in the hive shell and default database.
+10.permission to show data in Excel sheet for analysis 
 hive > grant SELECT ON TABLE tweetcompare to user hue;
 hive > grant SELECT ON TABLE tweetcompare to user root;
-
-
-permission to show Analyis Result on Hadoop HDFS
+11.permission to show Analyis Result on Hadoop HDFS
 $hadoop fs -chmod 777 /tmp
 $hadoop fs -chmod 777 /tmp/hive/
 or
