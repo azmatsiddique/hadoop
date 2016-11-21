@@ -27,19 +27,4 @@ Installation of Hive Tool in hadoop
  lauch Hive using commad
  $hive> 
  ------------------------------------------------------------------
-7.we create a file tweets.sql which is on the Desktop
-8.Now run the tweets.sql file using the hive command 
-  $ cd Desktop
-  $ hive --f tweets.sql
-9.we look into all the created tables in the hive shell and default database.
-10.permission to show data in Excel sheet for analysis 
-hive > grant SELECT ON TABLE tweetcompare to user hue;
-hive > grant SELECT ON TABLE tweetcompare to user root;
-11.permission to show Analyis Result on Hadoop HDFS
-$hadoop fs -chmod 777 /tmp
-$hadoop fs -chmod 777 /tmp/hive/
-or
-$hadoop fs -chmod 777 /tmp.*
 
-Finding Result on HDFS using CLI(command line Interface)
-$ hadoop fs -ls -R /
