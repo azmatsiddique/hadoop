@@ -47,7 +47,8 @@ CREATE EXTERNAL TABLE Mytweets_raw (
 ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDe'
 LOCATION '/user/root/data/tweets_raw';
 
-load data inpath '/user/root/data/tweets_raw/FlumeData.*' INTO TABLE Mytweets_raw;
+load data inpath '/flumeDir/data/tweets_raw/FlumeData.*' INTO TABLE Mytweets_raw;
+
 
 -- create sentiment dictionary
 CREATE EXTERNAL TABLE dictionary (
@@ -63,7 +64,7 @@ STORED AS TEXTFILE
 LOCATION '/Data/dictionary';
 
 -- loading data to the table dictionary
-load data inpath '/Data/dictionary/dictionary.tsv' INTO TABLE dictionary;
+load data inpath '/flumeDir/data/dictionary/dictionary.tsv' INTO TABLE dictionary;
 
 CREATE EXTERNAL TABLE time_zone_map (
     time_zone string,
@@ -74,7 +75,7 @@ STORED AS TEXTFILE
 LOCATION '/Data/time_zone_map';
 
 -- loading data to the table time_zone_map
-load data inpath '/Data/time_zone_map/time_zone_map.tsv' INTO TABLE time_zone_map;
+load data inpath '/flumeDir/data/time_zone_map/time_zone_map.tsv' INTO TABLE time_zone_map;
 
 
 -- Clean up tweets
@@ -141,6 +142,12 @@ CREATE VIEW A as select country,tweet_count as positive_response from tweetsbiag
 CREATE VIEW B as select country,tweet_count as negative_response from tweetsbiaggr where sentiment='negative';
 CREATE VIEW C as select country,tweet_count as neutral_response from tweetsbiaggr where sentiment='neutral';
 CREATE TABLE tweetcompare as select A.*,B.negative_response as negative_response,C.neutral_response as neutral_response from A join B on A.country= B.country join C on B.country=C.country;
+
+
+## Comparison command:
+select count(sentiment) from tweets_sentiment where sentiment ='neutral';
+select count(sentiment) from tweets_sentiment where sentiment ='positive';
+
 
  -- permission to show data in Excel sheet for analysis ....
 grant SELECT ON TABLE tweetcompare to user hue;
